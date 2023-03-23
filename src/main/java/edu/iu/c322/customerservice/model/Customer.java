@@ -1,22 +1,38 @@
 package edu.iu.c322.customerservice.model;
 
 import java.util.Objects;
+import jakarta.validation.constraints.NotEmpty.message;
 
 public class Customer {
 
     private int id;
-    private String name, email;
+
+    @NotEmpty(message="name cannot be empty")
+    private String name;
+    private String email;
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
     }
 
     @Override
